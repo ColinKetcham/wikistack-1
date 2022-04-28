@@ -16,11 +16,10 @@ db.authenticate().then(() => {
 });
 
 app.get("/", (req, res) => {
-  res.send("hello");
+  res.redirect("/wiki");
 });
 
 app.use("/wiki", wikiRouter);
-// app.use("/users", userRouter);
 
 const port = 3000;
 
