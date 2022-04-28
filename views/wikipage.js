@@ -3,11 +3,11 @@ const layout = require("./layout");
 
 module.exports = (page, author) =>
   layout(html`
-    <h3>
+    <h3 style="margin-top:50px">
       ${page.title}
       <small> (<a href="/wiki/${page.slug}/similar">Similar</a>)</small>
     </h3>
-    <h4>by <a href="PLACEHOLDER-AUTHOR-URL">PLACEHOLDER AUTHOR NAME</a></h4>
+    <h4>by <a href="/users/${author.id}">${author.name}</a></h4>
     <hr />
     <div class="page-body">${page.content}</div>
     <hr />

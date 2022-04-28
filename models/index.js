@@ -4,9 +4,6 @@ const db = new Sequelize("postgres://localhost:5432/wikistack", {
   logging: false,
 });
 
-//const Page = require("./page");
-//const User = require("./user");
-
 const Page = db.define("page", {
   title: {
     type: Sequelize.STRING,
@@ -42,11 +39,10 @@ const User = db.define("user", {
     type: Sequelize.STRING,
     allowNull: false,
     unique: true,
-    validate: {
-      isEmail: true,
-    },
   },
 });
+
+Page.belongsTo(User, { as: "author" });
 
 module.exports = {
   User,
